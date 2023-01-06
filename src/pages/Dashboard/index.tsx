@@ -4,8 +4,8 @@ import ContentHeader from '../../components/ContentHeader';
 import SelectInput from '../../components/SelectInput';
 import listOfMonths from '../../utils/months';
 
-import expenses from '../../repositories/expenses';
-import gains from '../../repositories/gains';
+import { expenses } from '../../repositories/expenses';
+import { gains } from '../../repositories/gains';
 import WalletBox from '../../components/WalletBox';
 import MessageBox from '../../components/MessageBox';
 import PieChartBox from '../../components/PieChartBox';

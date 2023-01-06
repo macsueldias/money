@@ -4,8 +4,8 @@ import ContentHeader from '../../components/ContentHeader';
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
 import SelectInput from '../../components/SelectInput';
 
-import gains from '../../repositories/gains';
-import expenses from '../../repositories/expenses';
+import { gains } from '../../repositories/gains';
+import { expenses } from '../../repositories/expenses';
 import formatCurrency from '../../utils/formatCurrency'
 import FormatDate from '../../utils/formatDate'
 import listOfMonths from '../../utils/months';
