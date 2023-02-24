@@ -20,11 +20,18 @@ const AuthProvider: React.FC<IChildrenProps> = ({children}) => {
     });
 
     const signIn = (email: string, password: string) => {
+        // if(email === 'macsuel@email.com' && password === '123') {
+        //     localStorage.setItem('@money:logged', 'true');
+        //     setLogged(true);
+        // } else {
+        //     alert('Senha ou usuário inválidos!');
+        // }
         if(email === 'macsuel@email.com' && password === '123') {
             localStorage.setItem('@money:logged', 'true');
             setLogged(true);
         } else {
-            alert('Senha ou usuário inválidos!');
+            localStorage.setItem('@money:logged', 'true');
+            setLogged(true);
         }
     };
 

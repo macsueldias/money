@@ -31,12 +31,14 @@ const SignIn: React.FC = () => {
                 <Input 
                     type='email' 
                     placeholder='email'
+                    value="macsuel@email.com"
                     required
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <Input 
                     type='password' 
                     placeholder='senha'
+                    value="123"
                     required
                     onChange={(e) => setPassword(e.target.value)}
                 />
