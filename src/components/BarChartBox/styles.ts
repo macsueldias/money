@@ -1,7 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 interface ILengendProps {
-    color: string;
+  color: string
 }
 
 const animate = keyframes`
@@ -16,111 +16,113 @@ const animate = keyframes`
         transform: translate(0px);
         opacity: 1;
     }
-`;
+`
 
 export const Container = styled.div`
-   width: 48%;
-   min-height: 260px;
-   
-   margin: 10px 0;
+  width: 48%;
+  min-height: 260px;
 
-   background-color: ${props => props.theme.colors.tertiary};
-   color: ${props => props.theme.colors.white};
+  margin: 10px 0;
 
-   border-radius: 7px;
+  background-color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.white};
 
-   display: flex;
+  border-radius: 7px;
 
-   animation: ${animate} 2s ease-in;
+  display: flex;
 
-    @media (max-width: 1200px) {
-        display: flex;
-        flex-direction: column;
+  animation: ${animate} 2s ease-in;
 
-        width: 100%;
-        height: auto;
-    }
-`;
-
-export const LegendContainer = styled.ul `
-    list-style: none;
-
-    height: 175px;
-    padding-right: 16px;
-
-    overflow-y: scroll;
-
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: ${props => props.theme.colors.secondary};
-        border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: ${props => props.theme.colors.tertiary};
-    }
-
-    @media (max-width: 770px) {
-        display: flex;
-    }
-`;
-
-export const Legend = styled.li<ILengendProps> `
+  @media (max-width: 1200px) {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 
-    margin-bottom: 7px;
-    padding-right: 12px;
-    
+    width: 100%;
+    height: auto;
+  }
+`
+
+export const LegendContainer = styled.ul`
+  list-style: none;
+
+  max-height: 175px;
+  padding-right: 16px;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.colors.secondary};
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: ${(props) => props.theme.colors.tertiary};
+    border-radius: 6px;
+  }
+
+  @media (max-width: 770px) {
+  }
+`
+
+export const Legend = styled.li<ILengendProps>`
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 7px;
+  padding-right: 12px;
+
+  > div {
+    border-radius: 5px;
+    margin-left: 5px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  span {
+    &:first-child {
+      width: 20px;
+      height: 5px;
+
+      background: ${(props) => props.color};
+    }
+
+    &:last-child {
+      margin-left: 5px;
+      font-weight: 700;
+    }
+  }
+
+  @media (max-width: 1200px) {
     > div {
-        background-color: ${props => props.color};
-        
-        width: 45px;
-        height: 45px;
-        border-radius: 5px;
-        
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 40px;
-        text-align: center;
+      width: 30px;
+      height: 30px;
+
+      font-size: 10px;
+      line-height: 30px;
+
+      text-align: center;
     }
-
-    > span {
-        margin-left: 5px;
-        font-weight: 700;
-    }
-
-    @media (max-width: 1200px) {
-        > div {
-            width: 30px;
-            height: 30px;
-
-            font-size: 10px;
-            line-height: 30px;
-
-            text-align: center;
-        }
-    }
-`;
+  }
+`
 
 export const SideLeft = styled.aside`
-    flex: 1;
-    padding: 30px 20px;
-    
-    > h2 {
-        margin-bottom: 10px;
-        padding-left: 20px;
-    }
+  flex: 1;
+  padding: 30px 20px;
 
-`;
+  > h2 {
+    margin-bottom: 10px;
+    padding-left: 20px;
+  }
+`
 
 export const SideRight = styled.main`
-    flex: 1;
-    min-height: 150px;
-    display: flex;
-    justify-content: center;
-    padding-top: 35px;
-`;
+  flex: 1;
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  padding-top: 35px;
+`

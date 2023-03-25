@@ -1,59 +1,51 @@
-import React, { useMemo } from 'react';
-import CountUp from 'react-countup';
+import React, { useMemo } from 'react'
+import CountUp from 'react-countup'
 
-import dolarImg from '../../assets/dolar.svg';
-import arrowUpImg from '../../assets/arrow-up.svg';
-import arrowDownImg from '../../assets/arrow-down.svg';
-
+import dolarImg from '../../assets/dolar.svg'
+import arrowUpImg from '../../assets/arrow-up.svg'
+import arrowDownImg from '../../assets/arrow-down.svg'
 
 import { Container } from './styles'
 
-
 interface WalletBoxProps {
-    title: string;
-    amount: number;
-    footerlabel: string;
-    icon: 'dolar' | 'arrowUp' | 'arrowDown';
-    color: string; 
+  title: string
+  amount: number
+  footerlabel: string
+  icon: 'dolar' | 'arrowUp' | 'arrowDown'
+  color: string
 }
 
 const WalletBox: React.FC<WalletBoxProps> = ({
-    title,
-    amount,
-    footerlabel,
-    icon, 
-    color
+  title,
+  amount,
+  footerlabel,
+  icon,
+  color,
 }) => {
+  const iconSelected = useMemo(() => {
+    switch (icon) {
+      case 'dolar':
+        return dolarImg
+      case 'arrowUp':
+        return arrowUpImg
+      case 'arrowDown':
+        return arrowDownImg
+      default:
+        return undefined
+    }
+  }, [icon])
 
-    const iconSelected = useMemo(() => {
-        switch (icon) {
-            case 'dolar':
-                return dolarImg;
-            case 'arrowUp':
-                return arrowUpImg;
-            case 'arrowDown':
-                return arrowDownImg;
-            default:
-                return undefined;
-        }
-    }, [icon]);
-
-    return (
-        <Container color={color}>
-            <span>{title}</span>
-            <h1>
-                <strong>R$</strong>
-                <CountUp
-                    end={amount}
-                    separator="."
-                    decimal=","
-                    decimals={2}
-                />
-            </h1>
-            <small>{footerlabel}</small>
-            <img src={iconSelected} alt={title} />
-        </Container>
-    )
+  return (
+    <Container color={color}>
+      <span>{title}</span>
+      <h1>
+        <strong>R$</strong>
+        <CountUp end={amount} separator="." decimal="," decimals={2} />
+      </h1>
+      <small>{footerlabel}</small>
+      <img src={iconSelected} alt={title} />
+    </Container>
+  )
 }
 
-export default WalletBox;
+export default WalletBox

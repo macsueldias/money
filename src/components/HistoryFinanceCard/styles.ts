@@ -1,8 +1,7 @@
-import styled, { keyframes } from "styled-components";
-
+import styled, { keyframes } from 'styled-components'
 
 interface TagProps {
-    color: string;
+  color: string
 }
 
 const animate = keyframes`
@@ -17,50 +16,50 @@ const animate = keyframes`
         transform: translate(0px);
         opacity: 1;
     }
-`;
+`
 
 export const Container = styled.li`
-    background-color: ${props => props.theme.colors.tertiary};
+  background-color: ${(props) => props.theme.colors.secondary};
 
-    list-style: none;
-    border-radius: 6px;
-    margin: 10px 0;
-    padding: 12px 10px;
+  list-style: none;
+  border-radius: 6px;
+  margin: 10px 0;
+  padding: 12px 10px;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+  transition: all 0.3s;
+
+  position: relative;
+
+  animation: ${animate} 1s ease-in;
+
+  &:hover {
+    opacity: 0.7;
+    transform: translateX(10px);
+  }
+
+  > div {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    padding-left: 10px;
+  }
 
-    cursor: pointer;
-    transition: all .3s;
-
-    position: relative;
-
-    animation: ${animate} 1s ease-in;
-
-    &:hover {
-        opacity: 0.7;
-        transform: translateX(10px);
-    }
-
-    > div {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-left: 10px;
-    }
-
-    > div span {
-        font-size: 22px;
-        font-weight: 500;
-    }
-`;
+  > div span {
+    font-size: 22px;
+    font-weight: 500;
+  }
+`
 
 export const Tag = styled.div<TagProps>`
-    width: 13px;
-    height: 60%;
+  width: 13px;
+  height: 60%;
 
-    background-color: ${props => props.color};
-    position: absolute;
-    left: 0;
-`;
+  background-color: ${(props) => props.color};
+  position: absolute;
+  left: 0;
+`

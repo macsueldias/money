@@ -1,94 +1,96 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {
-    MdDashboard,
-    MdInput,
-    MdArrowDownward,
-    MdArrowUpward,
-    MdExitToApp,
-    MdClose,
-    MdMenu
+  MdDashboard,
+  MdInput,
+  MdArrowDownward,
+  MdArrowUpward,
+  MdExitToApp,
+  MdClose,
+  MdMenu,
 } from 'react-icons/md'
 
-import logoImg from '../../assets/Logo.svg'
+import logoImg from '../../assets/Logo.png'
 
-import { useAuth } from '../../hooks/auth';
+import { useAuth } from '../../hooks/auth'
 
 import { useTheme } from '../../hooks/theme'
 
 import Toggle from '../Toggle'
 
-import { 
-    Container, 
-    Header, 
-    LogImg, 
-    MenuContainer, 
-    MenuItemLink, 
-    MenuItemButton, 
-    Title,
-    ToggleMenu,
-    ThemeToggleFooter
+import {
+  Container,
+  Header,
+  LogImg,
+  MenuContainer,
+  MenuItemLink,
+  MenuItemButton,
+  Title,
+  ToggleMenu,
+  ThemeToggleFooter,
 } from './styles'
 
 const Aside: React.FC = () => {
-    const [toggleMenuIsOpened, SetToggleMenuIsOpened] = useState<boolean>(false)
+  const [toggleMenuIsOpened, SetToggleMenuIsOpened] = useState<boolean>(false)
 
-    const { toggleTheme, theme } = useTheme();
-    const [darkTheme, setDarkTheme] = useState(() => theme.title === 'dark' ? true : false);
+  const { toggleTheme, theme } = useTheme()
+  const [darkTheme, setDarkTheme] = useState(() => theme.title === 'dark')
 
-    const handleChangeTheme = () => {
-        setDarkTheme(!darkTheme)
-        toggleTheme()
-    }
-    
-    const handleToggleMenu = () => {
-        SetToggleMenuIsOpened(!toggleMenuIsOpened)
-    }
-    
-    const { signOut } = useAuth();
+  const handleChangeTheme = () => {
+    setDarkTheme(!darkTheme)
+    toggleTheme()
+  }
 
+  const handleToggleMenu = () => {
+    SetToggleMenuIsOpened(!toggleMenuIsOpened)
+  }
 
-    return (
-        <Container menuIsOpen={toggleMenuIsOpened}>
-            <Header>
-                <ToggleMenu onClick={() => {handleToggleMenu()}}>
-                    { toggleMenuIsOpened ? <MdClose /> : <MdMenu /> }
-                </ToggleMenu>
-                <LogImg src={logoImg} alt="Logo Minha Carteira" />
-                <Title>Minha Carteira</Title>
-            </Header>
-            <MenuContainer>
-                <MenuItemLink href="/dashboard">
-                    <MdDashboard />
-                    Dashboard
-                </MenuItemLink>
-                <MenuItemLink href="#">
-                    <MdInput />
-                    Novo registro
-                </MenuItemLink>
-                <MenuItemLink href="/list/balance-entry">
-                    <MdArrowDownward />
-                    Entradas
-                </MenuItemLink>
-                <MenuItemLink href="/list/balance-exit">
-                    <MdArrowUpward />
-                    Saídas
-                </MenuItemLink>
-                <MenuItemButton onClick={() => signOut()}>
-                    <MdExitToApp />
-                    Sair
-                </MenuItemButton>
-            </MenuContainer>
-            <ThemeToggleFooter menuIsOpen={toggleMenuIsOpened}>
-                <Toggle
-                    labelLeft='Light'
-                    labelRight='Dark'
-                    checked={darkTheme}
-                    onChange={handleChangeTheme}
-                />
+  const { signOut } = useAuth()
 
-            </ThemeToggleFooter>
-        </Container>
-    );
+  return (
+    <Container menuIsOpen={toggleMenuIsOpened}>
+      <Header>
+        <ToggleMenu
+          onClick={() => {
+            handleToggleMenu()
+          }}
+        >
+          {toggleMenuIsOpened ? <MdClose /> : <MdMenu />}
+        </ToggleMenu>
+        <LogImg src={logoImg} alt="Logo Minha Carteira" />
+        <Title>Minha Carteira</Title>
+      </Header>
+      <MenuContainer>
+        <MenuItemLink href="/dashboard">
+          <MdDashboard />
+          Dashboard
+        </MenuItemLink>
+        <MenuItemLink href="#">
+          <MdInput />
+          Novo registro
+        </MenuItemLink>
+        <MenuItemLink href="/list/balance-entry">
+          <MdArrowDownward />
+          Entradas
+        </MenuItemLink>
+        <MenuItemLink href="/list/balance-exit">
+          <MdArrowUpward />
+          Saídas
+        </MenuItemLink>
+      </MenuContainer>
+      <MenuItemButton onClick={() => signOut()}>
+        <MdExitToApp />
+        Logout
+      </MenuItemButton>
+      <ThemeToggleFooter menuIsOpen={toggleMenuIsOpened}>
+        <Toggle
+          labelLeft="Light"
+          labelRight="Dark"
+          checked={darkTheme}
+          onChange={handleChangeTheme}
+        />
+      </ThemeToggleFooter>
+    </Container>
+  )
 }
 
-export default Aside;
+export default Aside

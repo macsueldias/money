@@ -1,10 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.input`
-    width: 100%;
+  width: 100%;
 
-    margin: 7px 0;
-    padding: 10px;
+  background-color: #f0fdf4;
 
-    border-radius: 5px;
-`;
+  margin: 7px 0;
+  padding: 10px;
+
+  border-radius: 5px;
+`
