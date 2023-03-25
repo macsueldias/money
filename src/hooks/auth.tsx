@@ -30,13 +30,13 @@ const AuthProvider: React.FC<IChildrenProps> = ({ children }) => {
       localStorage.setItem('@money:logged', 'true')
       setLogged(true)
     } else {
-      localStorage.setItem('@money:logged', 'true')
-      setLogged(true)
+      localStorage.setItem('@money:logged', 'false')
     }
   }
 
   const signOut = () => {
     localStorage.removeItem('@money:logged')
+    window.location.href = '/'
     setLogged(false)
   }
 
