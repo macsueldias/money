@@ -133,7 +133,7 @@ export const ToggleMenu = styled.button`
 
   border-radius: 5px;
   font-size: 22px;
-  background-color: ${(props) => props.theme.colors.warning};
+  background-color: ${(props) => props.theme.colors.success};
 
   > svg {
     fill: ${(props) => props.theme.colors.white};
