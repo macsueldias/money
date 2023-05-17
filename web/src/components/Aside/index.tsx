@@ -64,7 +64,7 @@ const Aside: React.FC = () => {
           <MdDashboard />
           Dashboard
         </MenuItemLink>
-        <MenuItemLink href="#">
+        <MenuItemLink href="/addregister">
           <MdInput />
           Novo registro
         </MenuItemLink>
