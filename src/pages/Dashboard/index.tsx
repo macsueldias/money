@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback, useEffect } from 'react'
 
 import ContentHeader from '../../components/ContentHeader'
 import SelectInput from '../../components/SelectInput'
@@ -13,6 +13,7 @@ import HistoryBox from '../../components/HistoryBox'
 import BarChartBox from '../../components/BarChartBox'
 
 import { Container, Content } from './styles'
+import { api } from '../../lib/axios'
 
 const Dashboard: React.FC = () => {
   const [monthSelected, setMonthSelected] = useState<number>(
@@ -301,6 +302,12 @@ const Dashboard: React.FC = () => {
     } catch {
       throw new Error('invalid year value. Is accept 0 - 11')
     }
+  }, [])
+
+  useEffect(() => {
+    api.get('/gains').then((response) => {
+      console.log(response.data)
+    })
   }, [])
 
   return (
